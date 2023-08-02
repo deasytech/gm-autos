@@ -8,10 +8,11 @@ import { CarDetails, CustomButton } from '.';
 import { calculateCarRent, generateCarImageUrl } from '@/utils';
 
 interface CarCardProps {
-    car: CarProps
+    car: CarProps;
+    index: number;
 }
 
-const CarCard = ({ car }: CarCardProps) => {
+const CarCard = ({ car, index }: CarCardProps) => {
     const { city_mpg, make, model, transmission, year, drive } = car;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,7 @@ const CarCard = ({ car }: CarCardProps) => {
     const carRent = calculateCarRent(city_mpg, year);
 
     return (
-        <div className='car-card group'>
+        <div className='car-card group' key={index}>
             <div className='car-card__content'>
                 <h2 className='car-card__content-title'>{make} {model}</h2>
             </div>

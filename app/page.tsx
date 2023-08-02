@@ -22,7 +22,6 @@ export default function Home() {
   const [limit, setLimit] = useState(8);
 
   const getCars = async () => {
-console.log('env: ',process.env.NEXT_PUBLIC_RAPID_API_KEY)
     setLoading(true);
 
     try {
@@ -71,8 +70,8 @@ console.log('env: ',process.env.NEXT_PUBLIC_RAPID_API_KEY)
         {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
-              {allCars?.map((car) => (
-                <CarCard car={car} />
+              {allCars?.map((car, index) => (
+                <CarCard index={index} car={car} />
               ))}
             </div>
 
