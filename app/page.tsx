@@ -22,6 +22,7 @@ export default function Home() {
   const [limit, setLimit] = useState(8);
 
   const getCars = async () => {
+console.log('env: ',process.env.NEXT_PUBLIC_RAPID_API_KEY)
     setLoading(true);
 
     try {
